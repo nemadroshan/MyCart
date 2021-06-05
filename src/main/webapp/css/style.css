@@ -1,0 +1,84 @@
+
+.custom-bg{
+	background: #2874F0!important;
+}
+
+.admin .card{
+	
+}
+
+.admin .card :hover {
+  background-color: #2874F0;
+  color:white;
+  cursor: pointer;
+}
+
+.list-group-item.active {
+  
+    background-color: #2874F0!important;
+    border-color:  #2874F0!important;
+}
+
+.discount-style{
+	font-size: 10px!important;
+	font-style: italic!important;
+	text-color: white!important;	
+}
+
+.product-card :hover{
+	background-color: gray;
+  	color:white;
+}
+
+/*
+	Toast code css
+*/
+
+	#tost{
+		
+		min-width: 300px;
+		position: fixed;
+		bottom:30px;
+		left: 50%;
+		margin-left: -135px;
+		background: #333;
+		padding: 15px;
+		color: white;
+		text-align: center;
+		z-index: 1;
+		font-size: 18px;
+		visibility: hidden;
+		box-shadow: 0px 0px 100px #000;
+
+	}
+
+	#tost.display{
+		visibility: visible;
+		animation: fadeIn 0.5s ,fadeOut 0.5s 2.5s;
+	}
+
+
+
+   @keyframes fadeIn{
+   	from{
+   		bottom: 0;
+   		opacity: 0;
+   	}
+   	to{
+   		bottom: 30px;
+   		opacity: 1;
+
+   	}
+   }
+
+@keyframes fadeOut{
+   	from{
+   		bottom: 30px;
+   		opacity: 1;
+   	}
+   	to{
+   		bottom: 0;
+   		opacity: 0;
+
+   	}
+   }
