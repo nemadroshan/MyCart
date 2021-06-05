@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
+import org.apache.commons.io.IOUtils;
+
 import com.nt.dao.CategoryDao;
 import com.nt.dao.ProductDao;
 import com.nt.entity.Category;
@@ -106,10 +109,13 @@ public class AddCategoryProducts extends HttpServlet {
 					}
 					*/
 
-					byte[] bytes = new byte[is.available()];
-					is.read(bytes);
+					//byte[] bytes = new byte[is.available()];
+					byte[] len =IOUtils.toByteArray(is);
+					is.read(len);
 					// writing data
-					os.write(bytes);
+					os.write(len);
+					product.setImage(len);
+					product.setImagePath("test");
 				} catch (IOException ioe) {
 					// TODO: handle exception
 					ioe.printStackTrace();

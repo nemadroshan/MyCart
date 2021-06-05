@@ -1,13 +1,15 @@
 package com.nt.entity;
 
-import javax.persistence.CascadeType;
+import java.util.Arrays;
+import java.util.Base64;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 @Entity
 public class Product {
 	@Id
@@ -20,10 +22,21 @@ public class Product {
 	private int pPrice;
 	private int pDiscount;
 	private int pQuantity;
+	
 //	@Column(name = "category_categoryId")
 //	private int catId;
 	@ManyToOne
 	private Category category;
+	
+	//for image storing in db
+	
+	@Column(name = "image")
+	private byte[] image;
+	@Column
+	private String imagePath;
+	
+	@Transient
+	private String base64Image;
 	
 	public Category getCategory() {
 		return category;
@@ -130,5 +143,32 @@ public Product(String pName, String pDesc, String pPhoto, int pPrice, int pDisco
 		descountAmt= (int) ((this.getpDiscount()/100.0) * this.getpPrice());
 		return this.getpPrice()- descountAmt;
 	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 	
+	@Transient
+	public String getBase64Image() {
+		if(image!=null) {
+		//System.err.println("image -->" + Arrays.toString(image));
+	    base64Image = Base64.getEncoder().encodeToString(this.image);
+	    	return base64Image;
+		}
+		else {
+		return pPhoto;
+		}
+	}
 }
