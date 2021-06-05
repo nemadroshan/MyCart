@@ -276,6 +276,7 @@ if (user == null) {
 				<div class="modal-body">
 					<!-- category form  starts-->
 					<form action="delOperation" method="POST">
+				<input type="hidden" name="operation" value="delCategory">
 						<table class="table table-bordered">
 						
 							<thead>
@@ -295,8 +296,8 @@ if (user == null) {
 									<td><%=c.getCategoryDecription()%></td>
 									<td>
 									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value=""
-											id="flexCheckDefault"> <label
+										<input class="form-check-input" type="checkbox" value="<%=c.getCategoryId()%>"
+											id="flexCheckDefault" name="cCheck"> <label
 											class="form-check-label" for="flexCheckDefault">
 											Select </label>
 									</div>
@@ -333,7 +334,8 @@ if (user == null) {
 				</div>
 				<div class="modal-body">
 					<!-- category form  starts-->
-					<form action="prodDelOperation" method="POST">
+					<form action="delOperation" method="POST">
+					<input type="hidden" name="operation" value="delProduct">
 						<table class="table table-bordered">
 						
 							<thead>
@@ -368,8 +370,8 @@ if (user == null) {
 									
 									<td>
 									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value=""
-											id="flexCheckDefault"> <label
+										<input class="form-check-input" type="checkbox" value="<%=p.getPid()%>"
+											id="flexCheckDefault" name="pcheck"> <label
 											class="form-check-label" for="flexCheckDefault">
 											Select </label>
 									</div>

@@ -77,7 +77,7 @@
 							%>
 							<div class="card">
 								<div class="container text-center">
-									<img class="card-img-top" src="data:image/jpg;base64,<%=p.getBase64Image()%>"
+									<img class="cover card-img-top" src="data:image/jpg;base64,<%=p.getBase64Image()%>"
 										alt="<%=p.getpPhoto()%>"
 										style="max-height: 200px; max-width: 100%; width: auto;"
 										class="card-img-top m-2">

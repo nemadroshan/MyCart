@@ -82,3 +82,11 @@
 
    	}
    }
+   
+ 
+ //added on   5 MAy 2021
+ .cover {
+  object-fit: cover;
+  width: 50px;
+  height: 100px;
+}

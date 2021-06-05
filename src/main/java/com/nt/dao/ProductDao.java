@@ -47,5 +47,16 @@ public class ProductDao {
 		pList= query.getResultList();
 		return pList;
 	}
+	
+	public int removeProduct(int id){ 
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		Query query2 = session.createQuery(" delete from Product where pid =: id ");
+		//System.out.println("Deleting a row having the value 'Third' in a property named 'firstName'");
+		query2.setParameter("id",id);
+		int c =query2.executeUpdate();
+		session.getTransaction().commit();
+		return c;
+	}
 
 }
